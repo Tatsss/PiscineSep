@@ -1,20 +1,12 @@
 #include <unistd.h>
 
 void ft_print_numbersn(void) {
-    // int i;
+    int i = 48;
 
-    // for (i = 0; i <= 10; i++) {
-    //     write(1, &i, 10);
-    // }
-
-    int	count;
-
-	count = 48;
-	while (count <= 57)
-	{
-		write(1, &count, 1);
-		count++;
-	}
+    while (i <= 57) {
+        write(1, &i, 1);
+        i++;
+    }
 }
 
 int main(void) {
