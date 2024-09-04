@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 void ft_is_negative(int n) {
     
@@ -12,13 +13,11 @@ void ft_is_negative(int n) {
 
 }
 
-int main (void) {
-// int main(int argc, char *argv[]) {
-    // int cline = argv[1];
-    // ft_is_negative((int)argv[1]);
-    ft_is_negative(99);
-    ft_is_negative(-50);
-    ft_is_negative(0);
+
+int main(int argc, char *argv[]) {
+
+    ft_is_negative(atoi(argv[1]));
     return 0;
+
 }
 
