@@ -18,15 +18,16 @@ void ft_print_comb(void) {
                     while (number[2] <= '9') {
 
                         number[0];
-                        ft_putchar(number[1]);
-                        ft_putchar(number[2]);
+                        number[1];
+                        number[2];
 
                         if (number[0] == '7' && number[1] == '8' && number[2] == '9') {
                             return;
                         }
 
-                        ft_putchar(44);
-                        ft_putchar(32);
+                        write(1, ', ', 1);
+                        // ft_putchar(44);
+                        // ft_putchar(32);
                         
                         number[2]++;
                         
@@ -45,7 +46,7 @@ void ft_print_comb(void) {
 
 
 int main(void) {
+
     ft_print_comb();
     return 0;
-
 }
