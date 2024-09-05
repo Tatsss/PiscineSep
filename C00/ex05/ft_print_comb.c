@@ -17,7 +17,7 @@ void ft_print_comb(void) {
                     number[2] =  number[1] + 1;
                     while (number[2] <= '9') {
 
-                        ft_putchar(number[0]);
+                        number[0];
                         ft_putchar(number[1]);
                         ft_putchar(number[2]);
 
