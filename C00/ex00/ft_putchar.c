@@ -5,18 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 19:44:24 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/05 20:10:30 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/05 20:09:29 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/05 21:50:57 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <unistd.h>
 
-void ft_putchar(char c) {
-    write(1, &c, 1);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-int main(void) {
-    ft_putchar('b');
-}
+// int	main(void)
+// {
+// 	ft_putchar('a');
+// 	ft_putchar('1');
+// 	return (0);
+// }

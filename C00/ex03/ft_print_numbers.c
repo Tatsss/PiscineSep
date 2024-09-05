@@ -1,15 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/05 21:04:34 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/05 22:12:47 by tokuda           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_numbersn(void) {
-    int i = 48;
+void	ft_print_numbersn(void)
+{
+	int	i;
 
-    while (i <= 57) {
-        write(1, &i, 1);
-        i++;
-    }
+	i = 48;
+	while (i <= 57)
+	{
+		write(1, &i, 1);
+		i++;
+	}
 }
 
-int main(void) {
-    ft_print_numbersn();
-    return 0;
-}
+// int	main(void)
+// {
+// 	ft_print_numbersn();
+// 	return (0);
+// }
