@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 18:52:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 13:26:27 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/07 13:23:12 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/07 13:41:04 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_ultimate_ft(int *********nbr)
 {
-	*nbr = 42;
+	*********nbr = 42;
 }
 
 int	main(void)
@@ -24,7 +24,7 @@ int	main(void)
 
 	hoge = 1;
 	printf("%d\n", hoge);
-	ft_ft(&hoge);
+	ft_ultimate_ft(&hoge);
 	printf("%d\n", hoge);
 	return (0);
 }

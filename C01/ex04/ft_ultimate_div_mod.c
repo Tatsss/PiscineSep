@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 18:52:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 13:26:27 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/07 14:45:23 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/08 12:40:33 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	*nbr = 42;
+	int	div;
+	int	mod;
+
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
 
 int	main(void)
 {
 	int	hoge;
+	int	fuga;
 
-	hoge = 1;
-	printf("%d\n", hoge);
-	ft_ft(&hoge);
-	printf("%d\n", hoge);
+	hoge = 50;
+	fuga = 6;
+	printf("Calc: %d / %d = \n", hoge, fuga);
+	ft_ultimate_div_mod(&hoge, &fuga);
+	printf("Ans: = %d ... %d\n", hoge, fuga);
 	return (0);
 }

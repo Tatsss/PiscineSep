@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 18:52:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 13:26:27 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/07 15:35:01 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/08 12:44:09 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_putstr(char *str)
 {
-	*nbr = 42;
+	while (*str != '\0')
+	{
+		write(1, str, 1);
+		str++;
+	}
 }
 
 int	main(void)
 {
-	int	hoge;
-
-	hoge = 1;
-	printf("%d\n", hoge);
-	ft_ft(&hoge);
-	printf("%d\n", hoge);
+	ft_putstr("Hello World!");
 	return (0);
 }

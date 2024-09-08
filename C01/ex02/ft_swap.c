@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 18:52:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 13:26:27 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/07 13:30:30 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/07 13:46:40 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_swap(int *a, int *b)
 {
-	*nbr = 42;
+	int	c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
 int	main(void)
 {
 	int	hoge;
+	int	fuga;
 
 	hoge = 1;
-	printf("%d\n", hoge);
-	ft_ft(&hoge);
-	printf("%d\n", hoge);
+	fuga = 2;
+	printf("Before swap: hoge %d\n", hoge);
+	printf("Before swap: fuga %d\n", fuga);
+	ft_swap(&hoge, &fuga);
+	printf("After swap: hoge %d\n", hoge);
+	printf("After swap: fuga %d\n", fuga);
 	return (0);
 }
