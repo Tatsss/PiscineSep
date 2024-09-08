@@ -1,36 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/08 12:48:17 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/08 12:52:18 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/08 12:53:55 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/08 17:12:33 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int	count;
+	int	i;
+	int	arynum;
+	int	temp;
 
-	count = 0;
-	while (*str != '\0')
+	i = 0;
+	arynum = size - 1;
+	while (i < (size / 2))
 	{
-		count++;
-		str++;
+		temp = tab[i];
+		tab[i] = tab[arynum];
+		tab[arynum] = temp;
+		i++;
+		arynum--;
 	}
-	return (count);
 }
 
 int	main(void)
 {
-	int	hoge;
+	int	ary[5];
+	int	num;
+	int	i;
 
-	hoge = ft_strlen("Hello World!");
-	printf("文字列の文字数：%d文字", hoge);
+	num = 1;
+	i = 0;
+	printf("処理前配列:");
+	while (num <= 5)
+	{
+		ary[i] = num;
+		printf("%d", ary[i]);
+		num++;
+		i++;
+	}
+	ft_rev_int_tab(ary, 5);
+	printf("\n処理後配列:");
+	i = 0;
+	while (i < 5)
+	{
+		printf("%d", ary[i]);
+		i++;
+	}
 	return (0);
 }
