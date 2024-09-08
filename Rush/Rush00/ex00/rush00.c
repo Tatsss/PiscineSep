@@ -6,38 +6,33 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:53:45 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 22:04:50 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/08 12:33:50 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-void	sh_headtail(int len)
+void	dr_pattern(int len, int type)
 {
-	ft_putchar('o');
-	while (--len >= 1)
-	{
-		if (len == 1)
-		{
-			ft_putchar('o');
-			break ;
-		}
-		ft_putchar('-');
-	}
-	ft_putchar('\n');
-}
+	char	head;
+	char	mid;
 
-void	sh_mid(int len)
-{
-	ft_putchar('|');
+	head = 'o';
+	mid = '-';
+	if (type == 1)
+	{
+		head = '|';
+		mid = ' ';
+	}
+	ft_putchar(head);
 	while (--len >= 1)
 	{
 		if (len == 1)
 		{
-			ft_putchar('|');
+			ft_putchar(head);
 			break ;
 		}
-		ft_putchar(' ');
+		ft_putchar(mid);
 	}
 	ft_putchar('\n');
 }
@@ -46,14 +41,14 @@ void	rush(int x, int y)
 {
 	if (x == 0)
 		return ;
-	sh_headtail(x);
+	dr_pattern(x, 0);
 	while (--y >= 1)
 	{
 		if (y == 1)
 		{
-			sh_headtail(x);
+			dr_pattern(x, 0);
 			break ;
 		}
-		sh_mid(x);
+		dr_pattern(x, 1);
 	}
 }
