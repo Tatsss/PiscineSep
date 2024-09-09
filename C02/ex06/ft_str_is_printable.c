@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 01:03:27 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/09 02:09:27 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/09 09:49:15 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_str_is_printable(char *str)
 		if ((str[i] < ' ') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a'
 				|| str[i] > 'z'))
 			return (0);
-		++i;
+		i++;
 	}
 	return (1);
 }
