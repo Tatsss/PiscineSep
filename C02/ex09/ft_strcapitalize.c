@@ -6,55 +6,51 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:06:12 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/09 17:59:54 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/09 22:44:17 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 char	*ft_strcapitalize(char *str)
 {
-	int	i;
+	int		i;
+	char	temp;
 
 	i = 0;
+	temp = '\0';
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
+		if (temp <= '/' || (temp >= ':' && temp <= '@') || (temp >= '['
+				&& temp <= '`') || temp >= '{')
+		{
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] -= 32;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] += 32;
+		}
+		temp = str[i];
 		i++;
 	}
 	return (str);
 }
+#include <stdio.h>
 
 int	main(void)
 {
-	char hoge[] = "salut,
-		comment tu vas
-		? 42mots quarante - deux;
-	cinquante + et +
-		un ";
-		// char	result;
-		// char	*only_lowercase;
-		// char	*mixed_upperlowercase;
-		// char	*mixed_upperlowerjpcase;
-		// char	*nullcase;
-		// only_lowercase = "abcde";
-		// mixed_upperlowercase = "ABCdef";
-		// mixed_upperlowerjpcase = "ABCdefあいう";
-		// nullcase = NULL;
-		ft_strcapitalize(hoge);
-	// ft_strcapitalize(fuga);
-	printf("処理前文字列：%s\n", hoge);
-	// printf("処理前文字列：%s\n", fuga);
-	// printf("処理後文字列：%s", originalhoge);
-	// printf("大文字英字のみケース：ABCDE			出力結果：%d\n", result);
-	// result = ft_str_is_lowercase(only_lowercase);
-	// printf("小文字英字のみケース：abcde			出力結果：%d\n", result);
-	// result = ft_str_is_lowercase(mixed_upperlowercase);
-	// printf("大小英字混在ケース：ABCdef			出力結果：%d\n", result);
-	// result = ft_str_is_lowercase(mixed_upperlowerjpcase);
-	// printf("大小英字日本語混在ケース：ABCdefあいう		出力結果：%d\n", result);
-	// result = ft_str_is_lowercase(nullcase);
-	// printf("空のケース：					出力結果：%d\n", result);
+	char	ori_hoge[] = "salut, coHm tu vaSKf ? 42et ?ofa +qu-d/ux un";
+	char	hoge[] = "salut, coHm tu vaSKf ? 42et ?ofa +qu-d/ux un";
+	char	ori_fuga[] = "sa!ua&kt, c:ok>mhDD TEST va@lK?ff ?4A2e^tqu-d/uxj~an";
+	char	fuga[] = "sa!ua&kt, c:ok>mhDD TEST va@lK?ff ?4A2e^tqu-d/uxj~an";
+	char	nullcase[] = "";
+
+	ft_strcapitalize(hoge);
+	ft_strcapitalize(fuga);
+	ft_strcapitalize(nullcase);
+	printf("テスト01処理前文字列：%s\n", ori_hoge);
+	printf("テスト01処理後文字列：%s\n", hoge);
+	printf("テスト02処理後文字列：%s\n", ori_fuga);
+	printf("テスト02処理後文字列：%s\n", fuga);
+	printf("空欄ケース処理後文字列：%s\n", nullcase);
 	return (0);
 }
