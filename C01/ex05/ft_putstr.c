@@ -6,11 +6,10 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:35:01 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/08 12:44:09 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:11:09 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 void	ft_putstr(char *str)
@@ -22,8 +21,8 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(void)
-{
-	ft_putstr("Hello World!");
-	return (0);
-}
+// int	main(void)
+// {
+// 	ft_putstr("Hello World!");
+// 	return (0);
+// }

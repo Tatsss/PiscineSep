@@ -6,25 +6,24 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:52:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/07 13:26:27 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:43:57 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+// #include <stdio.h>
 
 void	ft_ft(int *nbr)
 {
 	*nbr = 42;
 }
 
-int	main(void)
-{
-	int	hoge;
+// int	main(void)
+// {
+// 	int	hoge;
 
-	hoge = 1;
-	printf("%d\n", hoge);
-	ft_ft(&hoge);
-	printf("%d\n", hoge);
-	return (0);
-}
+// 	hoge = 1;
+// 	printf("処理前出力結果：%d\n", hoge);
+// 	ft_ft(&hoge);
+// 	printf("処理後出力結果：%d\n", hoge);
+// 	return (0);
+// }
