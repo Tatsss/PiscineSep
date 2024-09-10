@@ -6,12 +6,11 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 14:45:23 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/08 12:40:33 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/09 12:57:39 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+// #include <stdio.h>
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
@@ -24,15 +23,15 @@ void	ft_ultimate_div_mod(int *a, int *b)
 	*b = mod;
 }
 
-int	main(void)
-{
-	int	hoge;
-	int	fuga;
+// int	main(void)
+// {
+// 	int	hoge;
+// 	int	fuga;
 
-	hoge = 50;
-	fuga = 6;
-	printf("Calc: %d / %d = \n", hoge, fuga);
-	ft_ultimate_div_mod(&hoge, &fuga);
-	printf("Ans: = %d ... %d\n", hoge, fuga);
-	return (0);
-}
+// 	hoge = 50;
+// 	fuga = 6;
+// 	printf("Calc: %d / %d = \n", hoge, fuga);
+// 	ft_ultimate_div_mod(&hoge, &fuga);
+// 	printf("Ans: = %d ... %d\n", hoge, fuga);
+// 	return (0);
+// }
