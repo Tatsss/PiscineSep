@@ -6,14 +6,16 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 00:47:31 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/10 02:19:01 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/10 16:31:43 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	char	hoge;
 
+	hoge = s1;
+	hoge = s2;
 	return (0);
 }
 
@@ -40,6 +42,6 @@ int	main(void)
 	printf("strcmp関数 最大値プラス\t\t\t：%d\n", result);
 	result = strcmp(null, del);
 	printf("strcmp関数 最小値マイナス\t\t：%d\n\n", result);
-	// ft_strcmp(hoge, fuga);
+	// ft_strcmp(original, same);
 	return (0);
 }
