@@ -4,12 +4,11 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "(lldb) 起動",
+            "name": "デバック起動(lldb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/C00/ex04/a.out",
+            "program": "${workspaceFolder}",
             "args": ["1","-9"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -17,7 +16,7 @@
             "externalConsole": false,
             "MIMode": "lldb"
         }
-        
+
 
     ]
 }
