@@ -6,13 +6,22 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 12:38:10 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 12:53:15 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/11 21:16:23 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	return (str);
+	int	i;
+
+	while (str[i])
+	{
+		if (str[i] == to_find[i])
+		{
+		}
+		i++;
+	}
+	return ('\0');
 }
 
 #include <stdio.h>
@@ -21,7 +30,7 @@ char	*ft_strstr(char *str, char *to_find)
 int	main(void)
 {
 	char	hoge[] = "Hello World!";
-	char	fuga[] = "ll";
+	char	fuga[] = "el";
 	char	piyo[] = "Test";
 	char	ltso[] = "o";
 	char	ltco[] = "O";

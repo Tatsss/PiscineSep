@@ -6,15 +6,28 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 23:58:20 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 11:40:42 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/11 20:23:49 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	char	a;
+	unsigned int	i;
+	int				count;
 
-	return (a);
+	i = 0;
+	count = 0;
+	while (dest[count])
+	{
+		count++;
+	}
+	while (i < nb)
+	{
+		dest[count] = src[i];
+		count++;
+		i++;
+	}
+	return (dest);
 }
 
 #include <stdio.h>
@@ -22,31 +35,60 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 int	main(void)
 {
-	char			hoge[20] = "Hello";
-	char			fuga[20] = "World";
+	unsigned int	i;
 	char			foo[5] = "Hello";
 	char			bar[5] = "World";
-	char			*ptr;
-	unsigned int	i;
+	char			hoge[20] = "Hello";
+	char			fuga[20] = "World";
+	char			piyo[20] = "Hello";
+	char			foo01[5] = "Hello";
+	char			bar01[5] = "World";
+	char			hogepiyo[20] = "World";
+	char			hoge01[20] = "Hello";
+	char			fuga01[20] = "World";
+	char			piyo01[20] = "Hello";
+	char			hogepiyo01[20] = "World";
 
 	printf("連結前文字列：\t結合先：%s\t\t結合元：%s\n", hoge, fuga);
-	ptr = strncat(hoge, fuga, 3);
+	strncat(hoge, fuga, 3);
 	printf("連結後文字列：\t結合先：%s\t結合元：%s\n", hoge, fuga);
 	printf("オーバーランテスト：\t結合先：%s\t結合元：%s\n", foo, bar);
-	// ptr = strncat(foo, bar, 3);
+	strncat(foo, bar, 3);
 	printf("オーバーランテスト：\t結合先：%s\t結合元：%s\n", foo, bar);
-	printf("NULL挙動確認：\n");
-	strncat(hoge, fuga, 8);
+	printf("NULL挙動確認：");
+	strncat(piyo, hogepiyo, 8);
 	i = 0;
-	while (i < sizeof(hoge))
+	while (i < sizeof(piyo))
 	{
-		if (hoge[i] == '\0')
+		if (piyo[i] == '\0')
 		{
 			printf("N");
 		}
 		else
 		{
-			printf("%c", hoge[i]);
+			printf("%c", piyo[i]);
+		}
+		i++;
+	}
+	printf("\n\n");
+	printf("連結前文字列：\t結合先：%s\t\t結合元：%s\n", hoge01, fuga01);
+	ft_strncat(hoge01, fuga01, 3);
+	printf("連結後文字列：\t結合先：%s\t結合元：%s\n", hoge01, fuga01);
+	printf("オーバーランテスト：\t結合先：%s\t結合元：%s\n", foo01, bar01);
+	ft_strncat(foo01, bar01, 3);
+	printf("オーバーランテスト：\t結合先：%s\t結合元：%s\n", foo01, bar01);
+	printf("NULL挙動確認：");
+	ft_strncat(piyo01, hogepiyo01, 8);
+	i = 0;
+	while (i < sizeof(piyo01))
+	{
+		if (piyo01[i] == '\0')
+		{
+			printf("N");
+		}
+		else
+		{
+			printf("%c", piyo01[i]);
 		}
 		i++;
 	}
