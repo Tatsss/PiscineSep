@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 00:01:49 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 20:36:30 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:03:50 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	destcount = 0;
 	srccount = 0;
 	while (dest[destcount])
-	{
 		destcount++;
-	}
 	while (src[srccount])
-	{
 		srccount++;
-	}
 	while (i < size)
 	{
 		dest[destcount] = src[i];

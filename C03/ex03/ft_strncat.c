@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 23:58:20 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 20:23:49 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:03:48 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	i = 0;
 	count = 0;
 	while (dest[count])
-	{
 		count++;
-	}
-	while (i < nb)
+	while (src[i] && i < nb)
 	{
 		dest[count] = src[i];
 		count++;
 		i++;
 	}
+	dest[count] = '\0';
 	return (dest);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:58:32 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 20:23:07 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:03:48 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ char	*ft_strcat(char *dest, char *src)
 	i = 0;
 	count = 0;
 	while (dest[count])
-	{
 		count++;
-	}
 	while (src[i])
 	{
 		dest[count] = src[i];
 		count++;
 		i++;
 	}
+	dest[count] = '\0';
 	return (dest);
 }
 
@@ -55,10 +54,10 @@ int	main(void)
 	strcat(qux, baz);
 	printf("strcat関数 nullを追加：\t\t結合先：%s\t結合元：%s\n", qux, baz);
 	printf("strcat関数 nullへ追加：\t\t結合先：%s\t結合元：%s\n", baz, qux);
-	strcat(baz, qux);
+	// strcat(baz, qux);
 	printf("strcat関数 nullへ追加：\t\t結合先：%s\t結合元：%s\n\n", baz, qux);
 	printf("strcat関数 オーバーフローテスト：\t結合先：%s\t\t結合元：%s\n", foo, bar);
-	strcat(foo, bar);
+	// strcat(foo, bar);
 	printf("strcat関数 オーバーフローテスト：\t結合先：%s\t結合元：%s\n\n", foo, bar);
 	printf("挙動確認　連結前文字列：\t結合先：%s\t\t結合元：%s\n", hoge01, fuga01);
 	ft_strcat(hoge01, fuga01);
