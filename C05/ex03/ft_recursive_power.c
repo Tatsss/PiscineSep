@@ -6,31 +6,18 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 21:17:16 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/15 15:39:24 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/16 00:00:50 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_recursive_power(int nb, int power)
 {
-	int	ans;
-
-	if (nb <= 0)
+	if (power < 0)
 		return (0);
-	else if (nb == 1)
-		return (1);
+	else if (power > 0)
+		return (nb * ft_recursive_power(nb, power - 1));
 	else
-		return (nb * ft_recursive_factorial(nb - 1));
-	if (nb == 0 && power == 0)
 		return (1);
-	else if (nb <= 0 || power <= 0)
-		return (0);
-	ans = nb;
-	while (power > 1)
-	{
-		ans *= nb;
-		power--;
-	}
-	return (ans);
 }
 
 #include <stdio.h>
