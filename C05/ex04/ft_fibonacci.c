@@ -1,48 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 21:17:16 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/15 15:39:24 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/15 15:39:48 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/15 16:11:38 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+int	ft_fibonacci(int index)
 {
-	int	ans;
-
-	if (nb <= 0)
+	if (index <= 0)
+		return (-1);
+	else if (index == 1)
 		return (0);
-	else if (nb == 1)
-		return (1);
 	else
-		return (nb * ft_recursive_factorial(nb - 1));
-	if (nb == 0 && power == 0)
-		return (1);
-	else if (nb <= 0 || power <= 0)
-		return (0);
-	ans = nb;
-	while (power > 1)
-	{
-		ans *= nb;
-		power--;
-	}
-	return (ans);
+		return (ft_fibonacci(index) + ft_fibonacci(index + 1));
 }
-
-#include <stdio.h>
-#include <stdlib.h>
 
 int	main(int argc, char *argv[])
 {
 	int	result;
 
 	result = 0;
-	if (argc == 3)
-		result = ft_recursive_power(atoi(argv[1]), atoi(argv[2]));
+	if (argc == 2)
+		result = ft_fibonacci(atoi(argv[1]));
 	printf("Answer:%d\n", result);
 	return (0);
 }
