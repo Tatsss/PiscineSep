@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 10:46:32 by hnagashi          #+#    #+#             */
-/*   Updated: 2024/09/15 17:17:44 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/17 10:46:14 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	parse_input(t_PuzzleData *data, char *input)
 	int	i;
 
 	i = 0;
-	if (my_strlen(input) != (SIZE * SIZE) * 2 - 1)
+	if (my_strlen(input) != (SIZE * 4) * 2 - 1)
 		return (1);
 	while (i < SIZE * 4)
 	{
