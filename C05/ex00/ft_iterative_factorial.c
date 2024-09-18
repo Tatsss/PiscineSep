@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 17:51:46 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/14 19:32:57 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/17 15:09:21 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	ft_iterative_factorial(int nb)
 	int	ans;
 
 	i = 1;
-	if (nb == '\0')
+	if (nb < 0 || nb > 12)
 		return (0);
+	else if (nb == 0 || nb == 1)
+		return (1);
 	ans = nb;
 	while (nb > i)
 	{
-		ans *= (nb - i);
+		ans *= i;
 		i++;
 	}
 	return (ans);

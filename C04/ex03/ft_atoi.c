@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 11:46:28 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/12 12:26:30 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/13 19:58:41 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/13 19:59:56 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ int	ft_atoi(char *str)
 	return (ans * negative);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int		result;
-	char	hoge[3] = "123";
-	char	fuga[19] = "   ---+--+1234ab567";
-	char	foo[50] = " 		-++-+--+888fsad982j";
+// int	main(void)
+// {
+// 	int		result;
+// 	char	hoge[3] = "123";
+// 	char	fuga[19] = "   ---+--+1234ab567";
+// 	char	foo[50] = " 		-++-+--+888fsad982j";
 
-	result = ft_atoi(hoge);
-	printf("%d\n", result);
-	result = ft_atoi(fuga);
-	printf("%d\n", result);
-	result = ft_atoi(foo);
-	printf("%d\n", result);
-	return (0);
-}
+// 	result = ft_atoi(hoge);
+// 	printf("%d\n", result);
+// 	result = ft_atoi(fuga);
+// 	printf("%d\n", result);
+// 	result = ft_atoi(foo);
+// 	printf("%d\n", result);
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 20:56:10 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/14 21:16:43 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/18 23:52:16 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@ int	ft_iterative_power(int nb, int power)
 {
 	int	ans;
 
-	if (nb == 0 && power == 0)
+	if (power == 0)
 		return (1);
-	else if (nb <= 0 || power <= 0)
+	if (power < 0)
 		return (0);
 	ans = nb;
 	while (power > 1)
@@ -26,6 +26,7 @@ int	ft_iterative_power(int nb, int power)
 	}
 	return (ans);
 }
+
 // #include <stdio.h>
 // #include <stdlib.h>
 

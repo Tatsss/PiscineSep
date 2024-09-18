@@ -6,13 +6,13 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 21:04:34 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/05 22:12:47 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/07 12:41:06 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbersn(void)
+void	ft_print_numbers(void)
 {
 	int	i;
 
@@ -26,6 +26,6 @@ void	ft_print_numbersn(void)
 
 // int	main(void)
 // {
-// 	ft_print_numbersn();
+// 	ft_print_numbers();
 // 	return (0);
 // }

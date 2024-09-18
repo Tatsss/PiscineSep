@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:27:56 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/12 12:36:09 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/14 20:34:06 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_putstr(char *str)
 
 int	main(int argc, char *argv[])
 {
-	ft_putstr(argv[0]);
+	if (argc == 1)
+		ft_putstr(argv[0]);
 	return (0);
 }

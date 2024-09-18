@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 22:10:34 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/12 11:04:26 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/13 19:59:42 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(void)
-{
-	char	hoge[] = "Hello World!\n";
-	char	fuga[] = "あいうえお\n";
-	char	nullcase[] = "";
+// int	main(void)
+// {
+// 	char	hoge[] = "Hello World!\n";
+// 	char	fuga[] = "あいうえお\n";
+// 	char	nullcase[] = "";
 
-	ft_putstr(hoge);
-	ft_putstr(fuga);
-	ft_putstr(nullcase);
-	return (0);
-}
+// 	ft_putstr(hoge);
+// 	ft_putstr(fuga);
+// 	ft_putstr(nullcase);
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 22:16:30 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/12 11:44:32 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/13 19:59:50 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,37 @@ void	ft_putnbr(int nb)
 	}
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int	hoge;
-	int	fuga;
-	int	piyo;
-	int	nullcase;
-	int	negative;
-	int	max_int;
-	int	min_int;
+// int	main(void)
+// {
+// 	int	hoge;
+// 	int	fuga;
+// 	int	piyo;
+// 	int	nullcase;
+// 	int	negative;
+// 	int	max_int;
+// 	int	min_int;
 
-	hoge = 1;
-	piyo = 89;
-	fuga = 12345;
-	nullcase = 0;
-	negative = -50;
-	max_int = 2147483647;
-	min_int = -2147483648;
-	ft_putnbr(hoge);
-	printf("\n");
-	ft_putnbr(piyo);
-	printf("\n");
-	ft_putnbr(fuga);
-	printf("\n");
-	ft_putnbr(nullcase);
-	printf("\n");
-	ft_putnbr(negative);
-	printf("\n");
-	ft_putnbr(max_int);
-	printf("\n");
-	ft_putnbr(min_int);
-	return (0);
-}
+// 	hoge = 1;
+// 	piyo = 89;
+// 	fuga = 12345;
+// 	nullcase = 0;
+// 	negative = -50;
+// 	max_int = 2147483647;
+// 	min_int = -2147483648;
+// 	ft_putnbr(hoge);
+// 	printf("\n");
+// 	ft_putnbr(piyo);
+// 	printf("\n");
+// 	ft_putnbr(fuga);
+// 	printf("\n");
+// 	ft_putnbr(nullcase);
+// 	printf("\n");
+// 	ft_putnbr(negative);
+// 	printf("\n");
+// 	ft_putnbr(max_int);
+// 	printf("\n");
+// 	ft_putnbr(min_int);
+// 	return (0);
+// }

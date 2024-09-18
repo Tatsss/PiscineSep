@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 21:02:41 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/05 21:50:46 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/07 12:38:27 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_print_alphabet(void)
 	}
 }
 
-int	main(void)
-{
-	ft_print_alphabet();
-	return (0);
-}
+// int	main(void)
+// {
+// 	ft_print_alphabet();
+// 	return (0);
+// }

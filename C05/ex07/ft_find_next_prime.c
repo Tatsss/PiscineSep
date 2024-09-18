@@ -6,11 +6,9 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 16:41:20 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/15 22:58:29 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/17 10:01:52 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_is_prime(int nb)
 {
@@ -43,16 +41,16 @@ int	ft_find_next_prime(int nb)
 	return (nb);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-int	main(int argc, char *argv[])
-{
-	int	result;
+// int	main(int argc, char *argv[])
+// {
+// 	int	result;
 
-	result = 0;
-	if (argc == 2)
-		result = ft_find_next_prime(atoi(argv[1]));
-	printf("Answer:%d\n", result);
-	return (0);
-}
+// 	result = 0;
+// 	if (argc == 2)
+// 		result = ft_find_next_prime(atoi(argv[1]));
+// 	printf("Answer:%d\n", result);
+// 	return (0);
+// }
