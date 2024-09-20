@@ -6,11 +6,12 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:45:16 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/19 03:53:54 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/20 19:07:46 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
+#include <stdlib.h>
 
 void	ft_putstr(char *str)
 {

@@ -6,11 +6,12 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:39:25 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/19 03:55:14 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/20 19:07:31 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
+#include <stdlib.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
