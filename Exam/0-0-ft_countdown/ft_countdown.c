@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_countdown.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 10:05:49 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/20 10:18:26 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/20 18:30:27 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/20 18:36:51 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
-}
+#include <unistd.h>
 
 int	main(void)
 {
-	int		hoge;
-	char	foo[] = "Abc";
-	char	bar[] = "pfe";
+	char	digit;
 
-	hoge = ft_strcmp(foo, bar);
-	printf("%d", hoge);
+	digit = '9';
+	while (digit >= '0')
+	{
+		write(1, &digit, 1);
+		digit--;
+	}
+	write(1, "\n", 1);
 	return (0);
 }

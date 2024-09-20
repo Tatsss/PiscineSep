@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   aff_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:56:53 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/19 20:09:29 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/20 18:19:42 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/20 18:27:12 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include <unistd.h>
+
+int	main(int ac, char **av)
 {
-	int	ans;
-	int	i;
-	int	negative;
-
-	negative = 1;
-	i = 0;
-	ans = 0;
-	while (str[i] == '-' || str[i] == '+')
+	if (ac != 2)
+		write(1, "a", 1);
+	else
 	{
-		if (str[i] == '-')
-			negative = negative * -1;
-		i++;
+		while (*av[1])
+		{
+			if (*av[1] == 'a')
+			{
+				write(1, "a", 1);
+				break ;
+			}
+			av[1]++;
+		}
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		ans = ans * 10 + (str[i] - '0');
-		i++;
-	}
-	return (ans * negative);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d", ft_atoi("1230456"));
+	write(1, "\n", 1);
 	return (0);
 }
