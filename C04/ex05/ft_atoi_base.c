@@ -6,9 +6,11 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 11:16:32 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/21 22:44:39 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/21 23:32:49 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -45,6 +47,9 @@ int	ft_atoi(char *str, int size, char *base)
 	{
 		if (base[i] == str[i])
 		{
+			printf("base：%d\n", base[i]);
+			printf("str[i]：%d\n", str[i]);
+			printf("i：%d\n", i);
 			return (i);
 		}
 		++i;
@@ -70,6 +75,7 @@ int	ft_atoi_base(char *str, char *base)
 
 	result = 0;
 	size = ft_strlen(base);
+	printf("長さ：%d\n", size);
 	if (size >= 2)
 	{
 		result = ft_atoi(str, size, base);
@@ -93,7 +99,7 @@ int	main(void)
 
 	base10 = "0123456789";
 	base02 = "01";
-	base16 = "0123456789ABCDEF";
+	base16 = "0123456789abcdef";
 	base08 = "poneyvif";
 	nullcase = "";
 	oneletter = "A";
@@ -102,18 +108,18 @@ int	main(void)
 	value = "a12";
 	// printf("%d", ft_atoi_base(value, base02));
 	// printf("\n");
-	printf("%d", ft_atoi_base(value, base10));
-	printf("\n");
+	// printf("%d", ft_atoi_base(value, base10));
+	// printf("\n");
 	// printf("%d", ft_atoi_base(value, base08));
 	// printf("\n");
 	printf("%d", ft_atoi_base(value, base16));
-	printf("\n");
-	printf("%d", ft_atoi_base(value, nullcase));
-	printf("\n");
-	printf("%d", ft_atoi_base(value, oneletter));
-	printf("\n");
-	printf("%d", ft_atoi_base(value, sameletter));
-	printf("\n");
-	printf("%d", ft_atoi_base(value, plus));
+	// printf("\n");
+	// printf("%d", ft_atoi_base(value, nullcase));
+	// printf("\n");
+	// printf("%d", ft_atoi_base(value, oneletter));
+	// printf("\n");
+	// printf("%d", ft_atoi_base(value, sameletter));
+	// printf("\n");
+	// printf("%d", ft_atoi_base(value, plus));
 	return (0);
 }

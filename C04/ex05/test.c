@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 23:14:11 by rariosa-          #+#    #+#             */
-/*   Updated: 2024/09/21 21:53:11 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/21 23:32:31 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	check_in_base(char c, char *base)
 	{
 		if (base[i] == c)
 		{
+			printf("base：%d\n", base[i]);
+			printf("c：%d\n", c);
+			printf("i：%d\n", i);
 			return (i);
 		}
 		++i;
@@ -43,6 +46,7 @@ int	ft_atoi_base(char *str, char *base)
 	sign = 1;
 	while (base[g_size_base] != '\0')
 		++g_size_base;
+	printf("長さ：%d\n", g_size_base);
 	if (str[0] == '-')
 	{
 		sign = -1;
@@ -51,6 +55,7 @@ int	ft_atoi_base(char *str, char *base)
 	while (str[i] != '\0')
 	{
 		x = check_in_base(str[i], base);
+		printf("xサイズ：%d\n", x);
 		if (x >= 0)
 		{
 			n = (n * g_size_base) + x;
