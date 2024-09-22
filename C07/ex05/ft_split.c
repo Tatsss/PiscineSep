@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/22 19:20:28 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/22 23:49:33 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,21 @@ int	ft_strlen(char *str)
 	return (count);
 }
 
+char	*ft_putdata(char *str, int start, int len)
+{
+	char	*data;
+
+	data = malloc(sizeof(char) * (len + 1));
+	if (!data)
+		return (NULL);
+	ft_strncpy(data, &str[start], len);
+	return (data);
+}
+
 char	**ft_split(char *str, char *charset)
 {
 	int		i;
 	int		n;
-	int		totalcount;
 	int		wordcount;
 	char	**array;
 
@@ -59,17 +69,12 @@ char	**ft_split(char *str, char *charset)
 		return (NULL);
 	i = 0;
 	n = 0;
-	totalcount = 0;
 	wordcount = 0;
 	while (i <= ft_strlen(str))
 	{
 		if (is_valid(str[i], *charset))
 		{
-			array[n] = malloc(sizeof(char) * wordcount + 1);
-			if (!array[n])
-				return (NULL);
-			ft_strncpy(array[n], &str[totalcount], wordcount);
-			totalcount += wordcount + 1;
+			array[n] = ft_putdata(str, i - wordcount, wordcount);
 			wordcount = 0;
 			n++;
 		}
