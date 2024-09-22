@@ -6,42 +6,97 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/19 07:02:49 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/22 19:20:28 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		++i;
+	}
+	while (i < n)
+		dest[i++] = '\0';
+	return (dest);
+}
+
+int	is_valid(char str, char charset)
+{
+	if (str == charset || str == '\0')
+	{
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_strlen(char *str)
 {
 	int	count;
 
 	count = 0;
-	while (*str)
-	{
+	while (str[count])
 		count++;
-		str++;
-	}
 	return (count);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	char	temp;
+	int		i;
+	int		n;
+	int		totalcount;
+	int		wordcount;
+	char	**array;
 
-	temp = malloc(sizeof(char) * ft_strlen(str) + 1);
-	return (0);
+	array = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (!array)
+		return (NULL);
+	i = 0;
+	n = 0;
+	totalcount = 0;
+	wordcount = 0;
+	while (i <= ft_strlen(str))
+	{
+		if (is_valid(str[i], *charset))
+		{
+			array[n] = malloc(sizeof(char) * wordcount + 1);
+			if (!array[n])
+				return (NULL);
+			ft_strncpy(array[n], &str[totalcount], wordcount);
+			totalcount += wordcount + 1;
+			wordcount = 0;
+			n++;
+		}
+		else
+			wordcount++;
+		i++;
+	}
+	return (array);
 }
+
 #include <stdio.h>
 
 int	main(void)
 {
-	char	*hoge[] = "ABC:1234:defgh";
-	char	*fuga;
+	char	*hoge;
+	char	**fuga;
 	int		i;
+	int		size;
 
-	i = 0;
+	hoge = "ABC:1234:defgh:9nd";
 	fuga = ft_split(hoge, ":");
-	printf("%s", fuga);
+	i = 0;
+	size = 4;
+	while (i < size)
+	{
+		printf("%s\n", fuga[i]);
+		i++;
+	}
 	return (0);
 }
