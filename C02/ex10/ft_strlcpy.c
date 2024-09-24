@@ -6,15 +6,21 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:26:38 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/11 18:00:59 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/24 01:57:31 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	int				len;
 
 	i = 0;
+	len = 0;
+	while (src)
+		len++;
+	if (size == 0)
+		return (len);
 	while (i < size && src[i])
 	{
 		dest[i] = src[i];

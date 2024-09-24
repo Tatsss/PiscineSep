@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 05:27:36 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/19 06:31:22 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/24 08:00:37 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ int	ft_strlen(char *str)
 	int	count;
 
 	count = 0;
-	while (*str)
-	{
+	while (str[count])
 		count++;
-		str++;
-	}
 	return (count);
 }
 
@@ -52,11 +49,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	i = 0;
 	if (size == 0)
 	{
-		temp = malloc(sizeof(char) * ft_strlen(*strs));
-		temp = NULL;
-		return ("");
+		temp = malloc(sizeof(char));
+		*temp = '\0';
+		return (temp);
 	}
-	temp = malloc(sizeof(char) * ft_strlen(*strs));
+	temp = malloc(sizeof(char) * (ft_strlen(*strs) + 1));
 	if (temp == NULL)
 		return (NULL);
 	while (i < size)
@@ -79,6 +76,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 // 	i = 0;
 // 	fuga = ft_strjoin(3, hoge, ":");
-// 	printf("%s", fuga);
+// 	printf("%s\n", fuga);
 // 	return (0);
 // }

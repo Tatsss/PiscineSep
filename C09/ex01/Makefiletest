@@ -1,0 +1,105 @@
+SRCS = srcs/
+INCLUDES = includes/
+FUNCTIONS = ft_putchar ft_putstr ft_strcmp ft_strlen ft_swap
+BINS = $(patsubst %, %.o, $(FUNCTIONS))
+
+.PHONY: clean fclean re all
+
+all: $(NAME)
+
+$(BINS):
+	@gcc -Wall -Werror -Wextra -c $(patsubst %.o, $(SRCS)%.c, $@) -I $(INCLUDES)
+
+$(NAME): $(BINS)
+	@ar rc $(NAME) $(BINS);
+	@ranlib $(NAME);
+
+clean:
+	@rm -f $(BINS)
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
+
+
+FILE = libft.a
+SOURCES = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
+OBJECT_FILES = ft_putchar.o ft_putstr.o ft_strcmp.o ft_strlen.o ft_swap.o
+HEADERS = includes
+
+all:	$(FILE)
+
+$(FILE):
+	gcc -Wall -Wextra -Werror -I $(HEADERS) -c $(SOURCES)
+	ar -rv $(FILE) $(OBJECT_FILES)
+	ranlib $(FILE)
+
+clean:
+	rm -rf $(OBJECT_FILES)
+
+fclean:	clean
+	rm -rf $(FILE)
+
+re:
+	fclean all
+
+
+NAME = libft.a
+SRCS = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c \
+			srcs/ft_strlen.c srcs/ft_swap.c
+OUT = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+INCLUDES = includes/
+
+all: $(NAME)
+
+$(NAME):
+	gcc -Wall -Wextra -Werror -c ./srcs/ft_*.c -I $(INCLUDES)
+	ar rc $(NAME) $(OUT)
+	ranlib $(NAME)
+
+clean:
+	/bin/rm -f $(OUT)
+
+fclean:	clean
+	/bin/rm -f $(NAME)
+
+re: fclean all
+
+
+
+
+
+
+
+
+LIB_NAME = libft.a
+SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+OBJS = $(SRCS:.c=.o)
+INCLUDES = includes
+CFLAGS = -Wall -Werror -Wextra -I $(INCLUDES)
+
+.PHONY: all clean fclean re
+
+all: $(LIB_NAME)
+
+$(LIB_NAME):
+	@echo "Creating library $@"
+	ar rc $(LIB_NAME) $(OBJS)
+	# ranlib $(LIB_NAME)
+	@echo "Library $@ created."
+
+%.o: %.c
+	@echo "Compiling $<"
+	gcc $(CFLAGS) -c $(SRCS)
+
+clean:
+	@echo "Cleaning up object files..."
+	rm -f $(OBJS)
+
+fclean: clean
+	@echo "Removing library $@..."
+	rm -f $(LIB_NAME)
+
+re:
+	fclean all

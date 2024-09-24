@@ -1,24 +1,41 @@
-NAME = libft.a
-SRCS = srcs/
-INCLUDES = includes/
-FUNCTIONS = ft_putchar ft_putstr ft_strcmp ft_strlen ft_swap
-BINS = $(patsubst %, %.o, $(FUNCTIONS))
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/24 06:48:51 by tokuda            #+#    #+#              #
+#    Updated: 2024/09/24 09:08:09 by tokuda           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-.PHONY: clean fclean re all
+LIB_NAME = libft.a
+SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+OBJS = $(SRCS:.c=.o)
+INCLUDES = includes
+CFLAGS = -Wall -Werror -Wextra -I $(INCLUDES)
 
-all: $(NAME)
+.PHONY: all clean fclean re
 
-$(BINS):
-	@gcc -Wall -Werror -Wextra -c $(patsubst %.o, $(SRCS)%.c, $@) -I $(INCLUDES)
+all: $(LIB_NAME)
 
-$(NAME): $(BINS)
-	@ar rc $(NAME) $(BINS);
-	@ranlib $(NAME);
+$(LIB_NAME):
+	@echo "Creating library $@"
+	ar rc $@ $^
+	@echo "Library $@ created."
+
+%.o: %.c
+	@echo "Compiling $<"
+	gcc $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(BINS)
+	@echo "Cleaning up object files..."
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	@echo "Removing library $@..."
+	rm -f $(LIB_NAME)
 
-re: fclean all
+re:
+	fclean all

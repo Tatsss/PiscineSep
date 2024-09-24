@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/22 23:49:33 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/24 00:51:05 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,23 +85,23 @@ char	**ft_split(char *str, char *charset)
 	return (array);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	*hoge;
-	char	**fuga;
-	int		i;
-	int		size;
+// int	main(void)
+// {
+// 	char	*hoge;
+// 	char	**fuga;
+// 	int		i;
+// 	int		size;
 
-	hoge = "ABC:1234:defgh:9nd";
-	fuga = ft_split(hoge, ":");
-	i = 0;
-	size = 4;
-	while (i < size)
-	{
-		printf("%s\n", fuga[i]);
-		i++;
-	}
-	return (0);
-}
+// 	hoge = "ABC:1234:defgh:9nd";
+// 	fuga = ft_split(hoge, ":");
+// 	i = 0;
+// 	size = 4;
+// 	while (i < size)
+// 	{
+// 		printf("%s\n", fuga[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
