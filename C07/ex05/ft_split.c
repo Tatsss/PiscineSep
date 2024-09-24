@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/22 23:49:33 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/24 10:27:18 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,18 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-int	is_valid(char str, char charset)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	if (str == charset || str == '\0')
+	unsigned int	i;
+
+	i = 0;
+	if (s1[i] == '\0')
+		return (0);
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
 	{
-		return (1);
+		if (s1[i] != s2[i])
+			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -64,7 +71,7 @@ char	**ft_split(char *str, char *charset)
 	int		wordcount;
 	char	**array;
 
-	array = malloc(sizeof(char) * ft_strlen(str) + 1);
+	array = malloc(sizeof(char *) * ft_strlen(str) + 1);
 	if (!array)
 		return (NULL);
 	i = 0;
@@ -72,11 +79,12 @@ char	**ft_split(char *str, char *charset)
 	wordcount = 0;
 	while (i <= ft_strlen(str))
 	{
-		if (is_valid(str[i], *charset))
+		if (!ft_strncmp(&str[i], charset, ft_strlen(charset)))
 		{
 			array[n] = ft_putdata(str, i - wordcount, wordcount);
 			wordcount = 0;
 			n++;
+			i += (ft_strlen(charset) - 1);
 		}
 		else
 			wordcount++;
@@ -91,16 +99,42 @@ int	main(void)
 {
 	char	*hoge;
 	char	**fuga;
+	char	*hoge2;
+	char	**fuga2;
+	char	*hoge3;
+	char	**fuga3;
 	int		i;
 	int		size;
 
-	hoge = "ABC:1234:defgh:9nd";
+	size = 4;
+	i = 0;
+	printf(": のセパレーター\n");
+	hoge = "ABC:12;34:defgh:/9/nd";
 	fuga = ft_split(hoge, ":");
+	while (i < size)
+	{
+		printf("%s\n", fuga[i]);
+		i++;
+	}
+	printf("\n");
+	printf(":/ のセパレーター\n");
+	hoge2 = "ABC:/12:;34:/defgh:/9/nd";
+	fuga2 = ft_split(hoge2, ":/");
 	i = 0;
 	size = 4;
 	while (i < size)
 	{
-		printf("%s\n", fuga[i]);
+		printf("%s\n", fuga2[i]);
+		i++;
+	}
+	i = 0;
+	printf("\n");
+	printf(":/A のセパレーター\n");
+	hoge3 = "ABC:/A12:;34:/Adefgh:/A9/nd";
+	fuga3 = ft_split(hoge3, ":/A");
+	while (i < size)
+	{
+		printf("%s\n", fuga3[i]);
 		i++;
 	}
 	return (0);
