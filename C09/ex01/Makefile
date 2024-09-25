@@ -6,23 +6,21 @@
 #    By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 06:48:51 by tokuda            #+#    #+#              #
-#    Updated: 2024/09/26 05:15:33 by tokuda           ###   ########.fr        #
+#    Updated: 2024/09/26 07:11:06 by tokuda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB_NAME = libft.a
-SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+SRCDIR = srcs
+SRCS = $(SRCDIR)/ft_putchar.c $(SRCDIR)/ft_swap.c $(SRCDIR)/ft_putstr.c $(SRCDIR)/ft_strlen.c $(SRCDIR)/ft_strcmp.c
 OBJS = $(SRCS:.c=.o)
-INCLUDES = includes
-CFLAGS = -Wall -Werror -Wextra -I $(INCLUDES)
-
-.PHONY: all clean fclean re
+INCDIR = includes
+CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)
 
 all: $(LIB_NAME)
 
-$(LIB_NAME):
-	ar rc $@ $^
-	ranlib $@
+$(LIB_NAME):$(OBJS)
+	ar rcs $(LIB_NAME) $(OBJS)
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@
@@ -33,4 +31,6 @@ clean:
 fclean: clean
 	rm -f $(LIB_NAME)
 
-re: fclean all
+re : fclean all
+
+.PHONY: all clean fclean re
