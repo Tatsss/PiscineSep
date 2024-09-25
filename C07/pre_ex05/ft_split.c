@@ -6,78 +6,90 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/26 04:21:25 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/24 10:27:18 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	is_valid(char str, char *charset)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	while (*charset)
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] && i < n)
 	{
-		if (str == *charset++ || str == '\0')
+		dest[i] = src[i];
+		++i;
+	}
+	while (i < n)
+		dest[i++] = '\0';
+	return (dest);
+}
+
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (s1[i] == '\0')
+		return (0);
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
 			return (1);
+		i++;
 	}
 	return (0);
 }
 
-int	ft_arraycount(char *str, char *charset)
+int	ft_strlen(char *str)
 {
 	int	count;
 
 	count = 0;
-	while (*str)
-	{
-		while (is_valid(*str, charset))
-			str++;
-		if (*str)
-			count++;
-		while (*str && !is_valid(*str, charset))
-			str++;
-	}
+	while (str[count])
+		count++;
 	return (count);
 }
 
-char	*ft_putdata(char *str, char *charset)
+char	*ft_putdata(char *str, int start, int len)
 {
-	char	*word;
-	int		len;
-	int		i;
+	char	*data;
 
-	len = 0;
-	while (str[len] && !is_valid(str[len], charset))
-		len++;
-	word = malloc(sizeof(char) * (len + 1));
-	word[len] = '\0';
-	i = 0;
-	while (i < len)
-	{
-		word[i] = str[i];
-		i++;
-	}
-	return (word);
+	data = malloc(sizeof(char) * (len + 1));
+	if (!data)
+		return (NULL);
+	ft_strncpy(data, &str[start], len);
+	return (data);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	char	**array;
-	int		arraycount;
 	int		i;
+	int		n;
+	int		wordcount;
+	char	**array;
 
+	array = malloc(sizeof(char *) * ft_strlen(str) + 1);
+	if (!array)
+		return (NULL);
 	i = 0;
-	arraycount = ft_arraycount(str, charset);
-	array = malloc(sizeof(char *) * (arraycount + 1));
-	while (i < arraycount)
+	n = 0;
+	wordcount = 0;
+	while (i <= ft_strlen(str))
 	{
-		while (is_valid(*str, charset))
-			str++;
-		array[i] = ft_putdata(str, charset);
-		while (*str && !is_valid(*str, charset))
-			str++;
+		if (!ft_strncmp(&str[i], charset, ft_strlen(charset)))
+		{
+			array[n] = ft_putdata(str, i - wordcount, wordcount);
+			wordcount = 0;
+			n++;
+			i += (ft_strlen(charset) - 1);
+		}
+		else
+			wordcount++;
 		i++;
 	}
-	array[i] = 0;
 	return (array);
 }
 
@@ -87,17 +99,17 @@ int	main(void)
 {
 	char	*hoge;
 	char	**fuga;
-	int		i;
-	int		size;
 	char	*hoge2;
 	char	**fuga2;
 	char	*hoge3;
 	char	**fuga3;
+	int		i;
+	int		size;
 
 	size = 4;
 	i = 0;
 	printf(": のセパレーター\n");
-	hoge = "ABC:12;34:defg h:/9/nd";
+	hoge = "ABC:12;34:defgh:/9/nd";
 	fuga = ft_split(hoge, ":");
 	while (i < size)
 	{
@@ -109,17 +121,16 @@ int	main(void)
 	hoge2 = "ABC:/12:;34:/defgh:/9/nd";
 	fuga2 = ft_split(hoge2, ":/");
 	i = 0;
-	size = 6;
+	size = 4;
 	while (i < size)
 	{
 		printf("%s\n", fuga2[i]);
 		i++;
 	}
 	i = 0;
-	size = 7;
 	printf("\n");
 	printf(":/A のセパレーター\n");
-	hoge3 = "ABC:/A12:;34:/fAdefgh:/A9/nd";
+	hoge3 = "ABC:/A12:;34:/Adefgh:/A9/nd";
 	fuga3 = ft_split(hoge3, ":/A");
 	while (i < size)
 	{

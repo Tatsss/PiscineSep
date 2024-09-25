@@ -6,136 +6,125 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:44:54 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/24 10:27:18 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/26 05:10:24 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	is_valid(char ch, char *charset)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		++i;
-	}
-	while (i < n)
-		dest[i++] = '\0';
-	return (dest);
-}
-
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (s1[i] == '\0')
-		return (0);
-	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
-	{
-		if (s1[i] != s2[i])
+	while (*charset)
+		if (ch == *charset++)
 			return (1);
-		i++;
-	}
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int	ft_arraycount(char *str, char *charset)
 {
 	int	count;
 
 	count = 0;
-	while (str[count])
-		count++;
+	while (*str)
+	{
+		while (is_valid(*str, charset))
+			str++;
+		if (*str)
+			count++;
+		while (*str && !is_valid(*str, charset))
+			str++;
+	}
 	return (count);
 }
 
-char	*ft_putdata(char *str, int start, int len)
+char	*ft_putdata(char *str, char *charset)
 {
-	char	*data;
+	int		len;
+	int		i;
+	char	*word;
 
-	data = malloc(sizeof(char) * (len + 1));
-	if (!data)
-		return (NULL);
-	ft_strncpy(data, &str[start], len);
-	return (data);
+	len = 0;
+	while (str[len] && !is_valid(str[len], charset))
+		len++;
+	word = malloc(sizeof(char) * (len + 1));
+	word[len] = '\0';
+	i = 0;
+	while (i < len)
+	{
+		word[i] = str[i];
+		i++;
+	}
+	return (word);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int		i;
-	int		n;
-	int		wordcount;
 	char	**array;
+	int		word_count;
+	int		i;
 
-	array = malloc(sizeof(char *) * ft_strlen(str) + 1);
+	word_count = ft_arraycount(str, charset);
+	i = 0;
+	array = malloc(sizeof(char *) * (word_count + 1));
 	if (!array)
 		return (NULL);
-	i = 0;
-	n = 0;
-	wordcount = 0;
-	while (i <= ft_strlen(str))
+	while (i < word_count)
 	{
-		if (!ft_strncmp(&str[i], charset, ft_strlen(charset)))
-		{
-			array[n] = ft_putdata(str, i - wordcount, wordcount);
-			wordcount = 0;
-			n++;
-			i += (ft_strlen(charset) - 1);
-		}
-		else
-			wordcount++;
+		while (is_valid(*str, charset))
+			str++;
+		array[i] = ft_putdata(str, charset);
+		while (*str && !is_valid(*str, charset))
+			str++;
 		i++;
 	}
+	array[i] = 0;
 	return (array);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	*hoge;
-	char	**fuga;
-	char	*hoge2;
-	char	**fuga2;
-	char	*hoge3;
-	char	**fuga3;
-	int		i;
-	int		size;
+// int	main(void)
+// {
+// 	char	*hoge;
+// 	char	**fuga;
+// 	int		i;
+// 	int		size;
+// 	char	*hoge2;
+// 	char	**fuga2;
+// 	char	*hoge3;
+// 	char	**fuga3;
 
-	size = 4;
-	i = 0;
-	printf(": のセパレーター\n");
-	hoge = "ABC:12;34:defgh:/9/nd";
-	fuga = ft_split(hoge, ":");
-	while (i < size)
-	{
-		printf("%s\n", fuga[i]);
-		i++;
-	}
-	printf("\n");
-	printf(":/ のセパレーター\n");
-	hoge2 = "ABC:/12:;34:/defgh:/9/nd";
-	fuga2 = ft_split(hoge2, ":/");
-	i = 0;
-	size = 4;
-	while (i < size)
-	{
-		printf("%s\n", fuga2[i]);
-		i++;
-	}
-	i = 0;
-	printf("\n");
-	printf(":/A のセパレーター\n");
-	hoge3 = "ABC:/A12:;34:/Adefgh:/A9/nd";
-	fuga3 = ft_split(hoge3, ":/A");
-	while (i < size)
-	{
-		printf("%s\n", fuga3[i]);
-		i++;
-	}
-	return (0);
-}
+// 	size = 4;
+// 	i = 0;
+// 	printf(": のセパレーター\n");
+// 	hoge = "ABC:12;34:defg h:/9/nd";
+// 	fuga = ft_split(hoge, ":");
+// 	while (i < size)
+// 	{
+// 		printf("%s\n", fuga[i]);
+// 		i++;
+// 	}
+// 	printf("\n");
+// 	printf(":/ のセパレーター\n");
+// 	hoge2 = "ABC:/12:;34:/defgh:/9/nd";
+// 	fuga2 = ft_split(hoge2, ":/");
+// 	i = 0;
+// 	size = 6;
+// 	while (i < size)
+// 	{
+// 		printf("%s\n", fuga2[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	size = 7;
+// 	printf("\n");
+// 	printf(":/A のセパレーター\n");
+// 	hoge3 = "ABC:/A12:;34:/fAdefgh:/A9/nd";
+// 	fuga3 = ft_split(hoge3, ":/A");
+// 	while (i < size)
+// 	{
+// 		printf("%s\n", fuga3[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
