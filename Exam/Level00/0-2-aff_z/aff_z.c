@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maff_revalpha.c                                    :+:      :+:    :+:   */
+/*   aff_z.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 09:54:55 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/24 17:42:50 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/24 17:47:02 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/24 17:53:47 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(void)
+int	main(int ac, char *av[])
 {
-	int	i;
-	int	upper;
-
-	i = 'z';
-	while (i >= 'a')
-	{
-		if (i % 2 != 0)
-		{
-			upper = i;
-			upper -= 32;
-			write(1, &upper, 1);
-		}
-		else
-			write(1, &i, 1);
-		i--;
-	}
+	write(1, "z", 1);
 	write(1, "\n", 1);
 	return (0);
 }

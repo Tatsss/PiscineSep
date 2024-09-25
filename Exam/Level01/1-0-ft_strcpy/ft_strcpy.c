@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maff_revalpha.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 09:54:55 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/24 17:42:50 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/24 17:57:23 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/24 18:17:38 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+
+char	*ft_strcpy(char *s1, char *s2)
+{
+	int	i;
+
+	i = -1;
+	while (s2[++i])
+		s1[i] = s2[i];
+	s1[i] = '\0';
+	return (s1);
+}
 
 int	main(void)
 {
-	int	i;
-	int	upper;
+	char	hoge[] = "abc";
+	char	dest[] = "123";
 
-	i = 'z';
-	while (i >= 'a')
-	{
-		if (i % 2 != 0)
-		{
-			upper = i;
-			upper -= 32;
-			write(1, &upper, 1);
-		}
-		else
-			write(1, &i, 1);
-		i--;
-	}
-	write(1, "\n", 1);
+	printf("%s\t%s\n", dest, hoge);
+	ft_strcpy(dest, hoge);
+	printf("%s\t%s", dest, hoge);
 	return (0);
 }

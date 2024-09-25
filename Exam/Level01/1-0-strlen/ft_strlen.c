@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maff_revalpha.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 09:54:55 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/24 17:42:50 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/24 18:19:07 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/24 18:21:09 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	main(void)
+int	ft_strlen(char *str)
 {
-	int	i;
-	int	upper;
+	int	count;
 
-	i = 'z';
-	while (i >= 'a')
-	{
-		if (i % 2 != 0)
-		{
-			upper = i;
-			upper -= 32;
-			write(1, &upper, 1);
-		}
-		else
-			write(1, &i, 1);
-		i--;
-	}
-	write(1, "\n", 1);
-	return (0);
+	count = 0;
+	while (str[count])
+		count++;
+	return (count);
 }
