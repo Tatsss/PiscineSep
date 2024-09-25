@@ -1,52 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   ans.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 12:29:27 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/25 16:41:19 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/25 21:29:44 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/25 21:29:49 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
-char	*ft_strcpy(char *s1, char *s2)
+void	ft_write_number(int number)
 {
-	int	i;
-
-	i = 0;
-	while (s2[i])
-	{
-		s1[i] = s2[i];
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	if (number > 9)
+		ft_write_number(number / 10);
+	write(1, &"0123456789"[number % 10], 1);
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	int	i;
+	int	number;
 
-	if (ac == 4)
+	number = 1;
+	while (number <= 100)
 	{
-		if (av[2][1] == '\0' && av[3][1] == '\0')
-		{
-			i = 0;
-			while (av[1][i])
-			{
-				if (av[1][i] == av[2][0])
-				{
-					av[1][i] = av[3][0];
-				}
-				write(1, &av[1][i], 1);
-				i++;
-			}
-		}
+		if (number % 3 == 0 && number % 5 == 0)
+			write(1, "fizzbuzz", 8);
+		else if (number % 3 == 0)
+			write(1, "fizz", 4);
+		else if (number % 5 == 0)
+			write(1, "buzz", 4);
+		else
+			ft_write_number(number);
+		write(1, "\n", 1);
+		number++;
 	}
-	write(1, "\n", 1);
-	return (0);
 }

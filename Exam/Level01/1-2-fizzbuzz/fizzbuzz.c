@@ -1,52 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   fizzbuzz.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 12:29:27 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/25 16:41:19 by tokuda           ###   ########.fr       */
+/*   Created: 2024/09/25 21:12:05 by tokuda            #+#    #+#             */
+/*   Updated: 2024/09/25 21:40:24 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
-char	*ft_strcpy(char *s1, char *s2)
+void	ft_putchar(char c)
 {
-	int	i;
-
-	i = 0;
-	while (s2[i])
-	{
-		s1[i] = s2[i];
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	write(1, &c, 1);
 }
 
-int	main(int ac, char **av)
+void	ft_putbnr(int num)
 {
-	int	i;
+	if (num >= 10)
+		ft_putbnr(num / 10);
+	ft_putchar((num % 10) + '0');
+}
 
-	if (ac == 4)
+int	main(void)
+{
+	int		i;
+	char	num;
+
+	i = 1;
+	while (i <= 100)
 	{
-		if (av[2][1] == '\0' && av[3][1] == '\0')
-		{
-			i = 0;
-			while (av[1][i])
-			{
-				if (av[1][i] == av[2][0])
-				{
-					av[1][i] = av[3][0];
-				}
-				write(1, &av[1][i], 1);
-				i++;
-			}
-		}
+		if (i % 15 == 0)
+			write(1, "fizzbuzz", 8);
+		else if (i % 3 == 0)
+			write(1, "fizz", 4);
+		else if (i % 5 == 0)
+			write(1, "buzz", 4);
+		else
+			ft_putbnr(i);
+		write(1, "\n", 1);
+		i++;
 	}
-	write(1, "\n", 1);
 	return (0);
 }
