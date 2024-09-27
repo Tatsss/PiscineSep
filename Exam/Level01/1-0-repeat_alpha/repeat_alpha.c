@@ -6,7 +6,7 @@
 /*   By: tokuda <tokuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:33:35 by tokuda            #+#    #+#             */
-/*   Updated: 2024/09/25 00:29:55 by tokuda           ###   ########.fr       */
+/*   Updated: 2024/09/25 10:11:34 by tokuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,11 @@ int	ft_lettercount(char c)
 
 	ans = 0;
 	if (c >= 'A' && c <= 'Z')
-	{
 		ans = c - 'A' + 1;
-	}
 	else if (c >= 'a' && c <= 'z')
-	{
 		ans = c - 'a' + 1;
-	}
 	else
-	{
 		ans = 1;
-	}
 	return (ans);
 }
 
